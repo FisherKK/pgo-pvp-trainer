@@ -4,7 +4,7 @@ import streamlit as st
 from project.generator import generate_question
 from project.io import load_json
 
-st.set_page_config(page_title="PGO PvP Trainer", page_icon="🎮", layout="wide")
+st.set_page_config(page_title="PGO PvP Trainer", page_icon="🎮", layout="centered", initial_sidebar_state="collapsed")
 st.sidebar.title("Settings")
 
 # Dataset Settings Section
@@ -148,25 +148,27 @@ if st.session_state.pokemon_database:
             )
 
         if st.session_state.question_data["type"] == "charged_move":
+            # Ensuring the button layout appears correctly as a 4x3 grid on smaller screens
             keyboard = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"], [",", "Enter", "X"]]
 
-            cols = st.columns(3)
-            for i, row in enumerate(keyboard):
-                for j, key in enumerate(row):
-                    if cols[j].button(key, key=f"key_{i}_{j}"):
-                        if key == "Enter":
-                            if validate_charge_move_input(
-                                st.session_state.user_input, correct_answer
-                            ):
-                                st.session_state.last_answer_correct = True
+            for row in keyboard:
+                cols = st.columns(3)
+                for i, key in enumerate(row):
+                    with cols[i]:
+                        if st.button(key, key=f"key_{row}_{i}"):
+                            if key == "Enter":
+                                if validate_charge_move_input(
+                                        st.session_state.user_input, correct_answer
+                                ):
+                                    st.session_state.last_answer_correct = True
+                                else:
+                                    st.session_state.last_answer_correct = False
+                            elif key == "X":
+                                st.session_state.user_input = st.session_state.user_input[:-1]
+                            elif key == "," and not st.session_state.user_input.endswith(", "):
+                                st.session_state.user_input += ", "
                             else:
-                                st.session_state.last_answer_correct = False
-                        elif key == "X":
-                            st.session_state.user_input = st.session_state.user_input[:-1]
-                        elif key == "," and not st.session_state.user_input.endswith(", "):
-                            st.session_state.user_input += ", "
-                        else:
-                            st.session_state.user_input += key
+                                st.session_state.user_input += key
 
             st.text_area(
                 "Your Input:", value=st.session_state.user_input, key="input_area", disabled=True
@@ -201,8 +203,8 @@ if st.session_state.pokemon_database:
                             )
 
             with col2:
-                for idx, variant in enumerate(variants[len(variants) // 2 :]):
-                    if st.button(str(variant), key=f"btn_{idx+len(variants)//2}"):
+                for idx, variant in enumerate(variants[len(variants) // 2:]):
+                    if st.button(str(variant), key=f"btn_{idx + len(variants) // 2}"):
                         if variant == correct_answer:
                             st.session_state.last_answer_correct = True
                             st.markdown(
