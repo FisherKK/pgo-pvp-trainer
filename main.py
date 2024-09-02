@@ -52,7 +52,7 @@ with st.sidebar.expander("Pokemon Max CP Settings", expanded=False):
     max_cp_options = {500: "500", 1500: "1500", 2500: "2500", "Max": "Max"}
     cols = st.columns(2)
     for i, (value, label) in enumerate(max_cp_options.items()):
-        if cols[i % 2].button(label, key=f"cp_{label}"):
+        if cols[i % 2].button(label, key=f"cp_{label}", use_container_width=True):
             st.session_state.pokemon_max_cp = value
 
     st.write(f"Selected Max Pokémon CP: {st.session_state.pokemon_max_cp}")
@@ -148,14 +148,13 @@ if st.session_state.pokemon_database:
             )
 
         if st.session_state.question_data["type"] == "charged_move":
-            # Ensuring the button layout appears correctly as a 4x3 grid on smaller screens
             keyboard = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"], [",", "Enter", "X"]]
 
             for row in keyboard:
                 cols = st.columns(3)
                 for i, key in enumerate(row):
                     with cols[i]:
-                        if st.button(key, key=f"key_{row}_{i}"):
+                        if st.button(key, key=f"key_{row}_{i}", use_container_width=True):
                             if key == "Enter":
                                 if validate_charge_move_input(
                                         st.session_state.user_input, correct_answer
@@ -185,39 +184,58 @@ if st.session_state.pokemon_database:
                         unsafe_allow_html=True,
                     )
         else:
-            col1, col2 = st.columns(2)
-            with col1:
-                for idx, variant in enumerate(variants[: len(variants) // 2]):
-                    if st.button(str(variant), key=f"btn_{idx}"):
-                        if variant == correct_answer:
-                            st.session_state.last_answer_correct = True
-                            st.markdown(
-                                f'<span style="color: green;">Correct! {answer_explanation}</span>',
-                                unsafe_allow_html=True,
-                            )
-                        else:
-                            st.session_state.last_answer_correct = False
-                            st.markdown(
-                                f'<span style="color: red;">Incorrect! The correct answer is: {correct_answer} {answer_explanation}</span>',
-                                unsafe_allow_html=True,
-                            )
-
-            with col2:
-                for idx, variant in enumerate(variants[len(variants) // 2:]):
-                    if st.button(str(variant), key=f"btn_{idx + len(variants) // 2}"):
-                        if variant == correct_answer:
-                            st.session_state.last_answer_correct = True
-                            st.markdown(
-                                f'<span style="color: green;">Correct! {answer_explanation}</span>',
-                                unsafe_allow_html=True,
-                            )
-                        else:
-                            st.session_state.last_answer_correct = False
-                            msg = f"Incorrect! The correct answer is: {correct_answer} {answer_explanation}"
-                            st.markdown(
-                                f'<span style="color: red;">{msg}</span>',
-                                unsafe_allow_html=True,
-                            )
-
+            cols = st.columns(2)
+            for idx, variant in enumerate(variants):
+                col = cols[idx % 2]
+                if col.button(str(variant), key=f"btn_{idx}", use_container_width=True):
+                    if variant == correct_answer:
+                        st.session_state.last_answer_correct = True
+                        st.markdown(
+                            f'<span style="color: green;">Correct! {answer_explanation}</span>',
+                            unsafe_allow_html=True,
+                        )
+                    else:
+                        st.session_state.last_answer_correct = False
+                        st.markdown(
+                            f'<span style="color: red;">Incorrect! The correct answer is: {correct_answer} {answer_explanation}</span>',
+                            unsafe_allow_html=True,
+                        )
 else:
     st.info("Please select or upload a Pokémon database to start the quiz.")
+
+
+#     if st.session_state.question_data:
+#         question = st.session_state.question_data["question"]
+#         variants = st.session_state.question_data["variants"]
+#         correct_answer = st.session_state.question_data["answer"]
+#         answer_explanation = st.session_state.question_data["answer_explanation"]
+#
+#         st.markdown(f"**Question**: {question}", unsafe_allow_html=True)
+#
+#         if show_answer_clicked:
+#             st.markdown(
+#                 f"**Answer**: {correct_answer} {answer_explanation}", unsafe_allow_html=True
+#             )
+#
+#         if st.session_state.question_data["type"] == "charged_move":
+#             keyboard = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"], [",", "Enter", "X"]]
+#
+#             for row in keyboard:
+#                 cols = st.columns(3)
+#                 for i, key in enumerate(row):
+#                     cols[i].button(key, key=f"key_{row}_{i}", use_container_width=True)
+#
+#             st.text_area(
+#                 "Your Input:", value=st.session_state.user_input, key="input_area", disabled=True
+#             )
+#
+#             if st.session_state.last_answer_correct is not None:
+#                 if st.session_state.last_answer_correct:
+#                     st.markdown(
+#                         f'<span style="color: green;">Correct!</span>', unsafe_allow_html=True
+#                     )
+#                 else:
+#                     st.markdown(
+#                         f'<span style="color: red;">Incorrect! The correct answer is: {correct_answer}</span>',
+#                         unsafe_allow_html=True,
+#                     )
