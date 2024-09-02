@@ -38,7 +38,7 @@ with st.sidebar.expander("Dataset Settings", expanded=True):
     elif data_source == "Select Database":
         dataset_files = [f for f in os.listdir("datasets") if f.endswith(".json")]
         dataset_filepath = st.selectbox("Select a Dataset", dataset_files)
-        if st.button("Load"):
+        if st.button("Load", use_container_width=True):
             with open(os.path.join("datasets", dataset_filepath), "r") as file:
                 pokemon_database = load_json(file)
                 st.session_state.pokemon_database = pokemon_database
@@ -118,8 +118,8 @@ st.title("PGO PvP Trainer")
 
 if st.session_state.pokemon_database:
     cols = st.columns(2)
-    next_question_clicked = cols[0].button("Next Question")
-    show_answer_clicked = cols[1].button("Show Answer")
+    next_question_clicked = cols[0].button("Next Question", use_container_width=True)
+    show_answer_clicked = cols[1].button("Show Answer", use_container_width=True)
 
     if next_question_clicked or st.session_state.question_data is None:
         st.session_state.question_data = generate_question(
