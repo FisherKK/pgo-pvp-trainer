@@ -455,10 +455,13 @@
             <h3>Dataset Settings</h3>
             <p>Pokédex file:</p>
             <div class="file-info" id="pokedex-file"></div>
+            <div class="file-info" id="pokedex-count"></div>
             <p>Moves file:</p>
             <div class="file-info" id="moves-file"></div>
+            <div class="file-info" id="moves-count"></div>
             <p>Current dataset file:</p>
             <select id="dataset-select"></select>
+            <div class="file-info" id="dataset-count"></div>
             <button id="load-dataset">Load Dataset</button>
         </div>
         <div id="max-cp-settings">
@@ -665,15 +668,23 @@
 
         function loadSidebarData() {
             $.get('/get_sidebar_data', function(data) {
-                $('#pokedex-file').text(data.pokedex_filename);
-                $('#moves-file').text(data.moves_filename);
-                $('#selected-max-cp').text('Selected Max Pokémon CP: ' + data.pokemon_max_cp);
+                $('#pokedex-file').text(data.pokedex_filename || 'Not loaded');
+                $('#moves-file').text(data.moves_filename || 'Not loaded');
+                $('#selected-max-cp').text('Selected Max Pokémon CP: ' + (data.pokemon_max_cp || 'Not set'));
                 
                 let datasetSelect = $('#dataset-select');
                 datasetSelect.empty();
-                data.dataset_files.forEach(function(file) {
-                    datasetSelect.append($('<option></option>').attr('value', file).text(file));
+                (data.dataset_files || []).forEach(function(file) {
+                    let option = $('<option></option>').attr('value', file).text(file);
+                    if (file === data.current_dataset) {
+                        option.attr('selected', 'selected');
+                    }
+                    datasetSelect.append(option);
                 });
+                $('#pokedex-count').text(`Element count: ${data.pokedex_count || 0}`);
+                $('#moves-count').text(`Element count: ${data.moves_count || 0}`);
+                $('#dataset-count').text(`Element count: ${data.dataset_count || 0}`);
+                getQuestion(); // Add this line
             });
         }
 
@@ -687,6 +698,7 @@
                 success: function(data) {
                     if (data.success) {
                         alert(data.message);
+                        $('#dataset-count').text(`Element count: ${data.dataset_count || 0}`);
                     }
                 }
             });
@@ -704,7 +716,6 @@
 
         $(document).ready(function() {
             loadSidebarData();
-            getQuestion();
 
             $('.cp-button').click(function() {
                 updateCPSelection($(this).data('cp'));

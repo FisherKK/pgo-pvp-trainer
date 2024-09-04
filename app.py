@@ -20,18 +20,28 @@ def load_databases():
     with open(moves_filepath, "r") as file:
         moves = load_json(file)
 
-    return pokedex, moves, pokedex_filename, moves_filename
+    return pokedex, moves, pokedex_filename, moves_filename, len(pokedex), len(moves)
 
+pokedex_database, moves_database, pokedex_filename, moves_filename, pokedex_count, moves_count = load_databases()
 
-pokedex_database, moves_database, pokedex_filename, moves_filename = load_databases()
+def load_first_dataset():
+    dataset_files = [f for f in os.listdir("datasets") if f.endswith(".json")]
+    if dataset_files:
+        dataset_filepath = os.path.join("datasets", dataset_files[0])
+        with open(dataset_filepath, "r") as file:
+            pokemon_database = load_json(file)
+        return pokemon_database, dataset_files[0]
+    return {}, ""
 
+# Call this function right after loading the pokedex and moves databases
+pokemon_database, current_dataset = load_first_dataset()
 
 @app.route("/")
 def index():
     if "pokemon_max_cp" not in session:
         session["pokemon_max_cp"] = 1500
-    if "pokemon_database" not in session:
-        session["pokemon_database"] = {}
+    if "pokemon_database" not in session or not session["pokemon_database"]:
+        session["pokemon_database"] = pokemon_database
     if "current_question" not in session:
         session["current_question"] = None
     return render_template("index.html")
@@ -39,12 +49,17 @@ def index():
 
 @app.route("/get_sidebar_data")
 def get_sidebar_data():
+    dataset_count = len(session.get("pokemon_database", {}))
     return jsonify(
         {
             "pokedex_filename": pokedex_filename,
             "moves_filename": moves_filename,
             "pokemon_max_cp": session.get("pokemon_max_cp", 1500),
             "dataset_files": [f for f in os.listdir("datasets") if f.endswith(".json")],
+            "current_dataset": current_dataset,
+            "pokedex_count": pokedex_count,
+            "moves_count": moves_count,
+            "dataset_count": dataset_count,
         }
     )
 
@@ -62,7 +77,11 @@ def load_dataset():
     with open(os.path.join("datasets", dataset_filepath), "r") as file:
         pokemon_database = load_json(file)
         session["pokemon_database"] = pokemon_database
-    return jsonify({"success": True, "message": f"Dataset {dataset_filepath} loaded successfully!"})
+    return jsonify({
+        "success": True,
+        "message": f"Dataset {dataset_filepath} loaded successfully!",
+        "dataset_count": len(pokemon_database)
+    })
 
 
 @app.route("/get_question", methods=["POST"])
@@ -74,8 +93,12 @@ def get_question():
     if attack_comparison_ratio == 0 and fast_attacks_ratio == 0 and charged_moves_ratio == 0:
         return jsonify({"question": "All questions disabled - check settings.", "type": "disabled"})
 
+    pokemon_database = session.get("pokemon_database", {})
+    if not pokemon_database:
+        return jsonify({"error": "No dataset loaded. Please load a dataset first.", "type": "error"})
+
     question_data = generate_question(
-        session.get("pokemon_database", {}),
+        pokemon_database,
         pokedex_database,
         moves_database,
         session.get("pokemon_max_cp", 1500),
