@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGO PvP Trainer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #020629;
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #101330;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #3b4675;
+        }
+        h2, h3 {
+            color: #FFFFFF;
+        }
+        #question {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #user-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            background-color: #101330;
+            color: #FFFFFF;
+            border: 1px solid #3b4675;
+        }
+        .keyboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .key, #check-answer, .next-question, .cp-button, #load-dataset, #toggle-sidebar,
+        .attack-comparison-button, .fast-attack-button {
+            background-color: #7e6894;
+            border: none;
+            color: #FFFFFF;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: transform 0.1s, background-color 0.3s;
+        }
+        #check-answer, .next-question, #toggle-sidebar {
+            background-color: #2e4bbf;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .sidebar {
+            width: 250px; /* Increased from 230px */
+            padding: 70px 15px 20px; /* Increased horizontal padding */
+            position: fixed;
+            top: 0;
+            left: -270px;
+            height: 100%;
+            background-color: #1e2b3d;
+            overflow-y: auto;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border-right: 1px solid #3b4675;
+            box-sizing: border-box;
+        }
+        .sidebar.show {
+            left: 0;
+        }
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.3s ease-in-out;
+            padding: 20px;
+        }
+        .main-content.sidebar-open {
+            margin-left: 270px;
+        }
+        #toggle-sidebar {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            width: auto;
+            padding: 10px;
+            transition: left 0.3s ease-in-out;
+        }
+        .sidebar.show + .main-content #toggle-sidebar {
+            left: 280px;
+        }
+        .slider-container {
+            margin-bottom: 15px;
+        }
+        .slider-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .slider-container input[type="range"] {
+            width: 100%;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .slider-value {
+            display: inline-block;
+            width: 40px;
+            text-align: right;
+        }
+        .attack-comparison-buttons, .fast-attack-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .fast-attack-buttons {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .key:active, #check-answer:active, .next-question:active, .cp-button:active, #load-dataset:active,
+        #toggle-sidebar:active, .attack-comparison-button:active, .fast-attack-button:active {
+            transform: scale(0.95);
+            background-color: #9B5B9B;
+        }
+        #check-answer:active, .next-question:active, #toggle-sidebar:active {
+            background-color: #1E90FF;
+        }
+        .sidebar button, .sidebar select {
+            margin-bottom: 10px;
+        }
+        #dataset-select {
+            width: 100%;
+            padding: 5px;
+            background-color: #555555;
+            color: #FFFFFF;
+            border: none;
+        }
+        .file-info {
+            background-color: #555555;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #3b4675;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #101330;
+            padding: 10px 0;
+            z-index: 10;
+        }
+        .button-container button {
+            flex: 1;
+        }
+        #question {
+            margin-top: 20px;
+        }
+        .next-question {
+            background-color: #2e4bbf;
+            border: none;
+            color: #FFFFFF;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: transform 0.1s, background-color 0.3s;
+        }
+        .next-question:active {
+            transform: scale(0.95);
+            background-color: #2e4bbf;
+        }
+        .sidebar {
+            padding-top: 50px;
+            padding-bottom: 100px;
+            overflow-y: auto;
+        }
+        .attack-comparison-button, .fast-attack-button {
+            color: #FFFFFF !important;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            min-height: 40px;
+            display: block !important;
+        }
+        .attack-comparison-button.selected, .fast-attack-button.selected {
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 10px #FFFFFF;
+        }
+        .cp-slider-container {
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+        .cp-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        .cp-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        .cp-slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        .cp-slider-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin-top: 10px;
+        }
+        .cp-slider-label {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #555;
+            border-radius: 50%;
+            font-size: 12px;
+            align-items: center;
+        }
+        .cp-slider {
+            margin-bottom: 20px;
+        }
+        .cp-slider-labels {
+            position: absolute;
+            width: 100%;
+            top: 15px;
+        }
+        .cp-slider-label {
+            margin-top: -30px;
+        }
+        .cp-button-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+        .cp-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #7e6894;
+            color: #FFFFFF;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .cp-button.selected {
+            background-color: #2e4bbf;
+        }
+        
+        /* Add these new styles for button highlighting */
+        .button-highlight-correct {
+            border: 3px solid #00FF00 !important;
+            box-shadow: 0 0 10px #00FF00;
+        }
+        .button-highlight-incorrect {
+            border: 3px solid #FF0000 !important;
+            box-shadow: 0 0 10px #FF0000;
+        }
+
+        /* Make the layout responsive */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+
+            .sidebar {
+                width: 100%;
+                left: -100%;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+
+            .main-content.sidebar-open {
+                margin-left: 0;
+            }
+
+            .sidebar.show + .main-content #toggle-sidebar {
+                left: calc(100% - 50px);
+            }
+
+            .keyboard {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .key, #check-answer, .next-question, .cp-button, #load-dataset, #toggle-sidebar,
+            .attack-comparison-button, .fast-attack-button {
+                padding: 10px 0;
+                font-size: 12px;
+            }
+
+            .attack-comparison-buttons, .fast-attack-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cp-button {
+                width: 40px;
+                height: 40px;
+                font-size: 10px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .button-container button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .sidebar {
+                width: 270px; /* Even wider for larger screens */
+                padding: 70px 20px 20px; /* More padding for larger screens */
+            }
+            
+            .main-content.sidebar-open {
+                margin-left: 290px; /* Adjust this to match the new sidebar width */
+            }
+            
+            .sidebar.show + .main-content #toggle-sidebar {
+                left: 300px; /* Adjust this to match the new sidebar width */
+            }
+        }
+
+        .button-separator {
+            border-top: 1px solid #3b4675;
+            margin-bottom: 20px;
+        }
+
+        /* Custom styles for jQuery UI dialog */
+        .ui-dialog {
+            background-color: #101330;
+            border: 1px solid #3b4675;
+            color: #FFFFFF;
+        }
+        .ui-dialog-titlebar {
+            background-color: #2e4bbf;
+            border-bottom: 1px solid #3b4675;
+            color: #FFFFFF;
+        }
+        .ui-dialog-title {
+            font-weight: bold;
+        }
+        .ui-dialog-buttonpane {
+            background-color: #101330;
+            border-top: 1px solid #3b4675;
+        }
+        .ui-dialog-buttonset {
+            float: right;
+        }
+        .ui-dialog-buttonset button {
+            background-color: #7e6894;
+            border: none;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.1s, background-color 0.3s;
+        }
+        .ui-dialog-buttonset button:hover {
+            background-color: #9B5B9B;
+        }
+        .ui-dialog-buttonset button:active {
+            transform: scale(0.95);
+            background-color: #9B5B9B;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-sidebar">Settings</button>
+    <div class="sidebar">
+        <div id="dataset-settings">
+            <h3>Dataset Settings</h3>
+            <p>Pokédex file:</p>
+            <div class="file-info" id="pokedex-file"></div>
+            <p>Moves file:</p>
+            <div class="file-info" id="moves-file"></div>
+            <p>Current dataset file:</p>
+            <select id="dataset-select"></select>
+            <button id="load-dataset">Load Dataset</button>
+        </div>
+        <div id="max-cp-settings">
+            <h3>Pokemon Max CP Settings</h3>
+            <div class="cp-button-container">
+                <button class="cp-button" data-cp="500">500</button>
+                <button class="cp-button" data-cp="1500">1500</button>
+                <button class="cp-button" data-cp="2500">2500</button>
+                <button class="cp-button" data-cp="10000">MAX</button>
+            </div>
+        </div>
+        <div id="question-settings">
+            <h3>Question Generation Settings</h3>
+            <div class="slider-container">
+                <label for="attack-comparison-ratio">Attack Comparison Ratio:</label>
+                <input type="range" id="attack-comparison-ratio" min="0" max="1" step="0.05" value="1">
+                <span class="slider-value" id="attack-comparison-ratio-value">1.00</span>
+            </div>
+            <div class="slider-container">
+                <label for="fast-attacks-ratio">Fast Attacks Ratio:</label>
+                <input type="range" id="fast-attacks-ratio" min="0" max="1" step="0.05" value="1">
+                <span class="slider-value" id="fast-attacks-ratio-value">1.00</span>
+            </div>
+            <div class="slider-container">
+                <label for="charged-moves-ratio">Charged Moves Ratio:</label>
+                <input type="range" id="charged-moves-ratio" min="0" max="1" step="0.05" value="1">
+                <span class="slider-value" id="charged-moves-ratio-value">1.00</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <div class="button-container">
+                <button id="check-answer">Check Answer</button>
+                <button class="next-question">Next Question</button>
+            </div>
+            <div class="button-separator"></div>
+            <div id="question"></div>
+            <div id="charged-move-input" style="display: none;">
+                <input type="text" id="user-input" readonly>
+                <div class="keyboard">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key">,</button>
+                    <button class="key">0</button>
+                    <button class="key">⌫</button>
+                </div>
+            </div>
+            <div id="attack-comparison-input" style="display: none;">
+                <div class="attack-comparison-buttons"></div>
+            </div>
+            <div id="fast-attack-input" style="display: none;">
+                <div class="fast-attack-buttons"></div>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let currentQuestion = null;
+
+        function getQuestion() {
+            $.ajax({
+                url: '/get_question',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    attack_comparison_ratio: $('#attack-comparison-ratio').val(),
+                    fast_attacks_ratio: $('#fast-attacks-ratio').val(),
+                    charged_moves_ratio: $('#charged-moves-ratio').val()
+                }),
+                success: function(data) {
+                    currentQuestion = data;
+                    displayQuestion(data);
+                }
+            });
+        }
+
+        function displayQuestion(questionData) {
+            $('#question').html(questionData.question);
+            $('#user-input').val('');
+            $('#result').text('');
+            resetButtonStates();
+            showAppropriateInput(questionData.type);
+        }
+
+        function showAppropriateInput(questionType) {
+            $('#charged-move-input, #attack-comparison-input, #fast-attack-input').hide();
+            if (questionType === 'charged_move') {
+                $('#charged-move-input').show();
+            } else if (questionType === 'attack_comparison') {
+                $('#attack-comparison-input').show();
+                $('.attack-comparison-buttons').empty();
+                currentQuestion.variants.forEach(function(variant) {
+                    $('.attack-comparison-buttons').append(
+                        $('<button>').addClass('attack-comparison-button').text(variant).click(function() {
+                            checkAnswer($(this).text());
+                        })
+                    );
+                });
+            } else if (questionType === 'fast_attack') {
+                $('#fast-attack-input').show();
+                $('.fast-attack-buttons').empty();
+                for (let i = 1; i <= 8; i++) {
+                    $('.fast-attack-buttons').append(
+                        $('<button>').addClass('fast-attack-button').text(i).click(function() {
+                            checkAnswer($(this).text());
+                        })
+                    );
+                }
+            }
+        }
+
+        function checkAnswer(userAnswer) {
+            if (currentQuestion.type === 'charged_move') {
+                userAnswer = $('#user-input').val();
+            }
+            
+            if (!userAnswer || userAnswer.trim() === '') {
+                $('#result').html('The correct answer is: ' + currentQuestion.answer + '<br>' + currentQuestion.answer_explanation).css('color', '#FFFF00');
+                return;
+            }
+            
+            $.ajax({
+                url: '/check_answer',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ user_input: userAnswer }),
+                success: function(data) {
+                    displayResult(data, userAnswer);
+                }
+            });
+        }
+
+        function displayResult(resultData, userAnswer) {
+            if (resultData.is_correct) {
+                $('#result').html('Correct!<br>' + resultData.answer_explanation).css('color', '#00FF00');
+            } else {
+                $('#result').html('Incorrect. The correct answer is: ' + resultData.correct_answer + '<br>' + resultData.answer_explanation).css('color', '#FF0000');
+            }
+            highlightButtons(resultData, userAnswer);
+            $('#result').show();
+        }
+
+        function highlightButtons(resultData, userAnswer) {
+            if (currentQuestion.type === 'fast_attack' || currentQuestion.type === 'attack_comparison') {
+                $('.fast-attack-button, .attack-comparison-button').prop('disabled', true).css('opacity', '0.5');
+                $('.fast-attack-button:contains("' + userAnswer + '"), .attack-comparison-button:contains("' + userAnswer + '")')
+                    .addClass(resultData.is_correct ? 'button-highlight-correct' : 'button-highlight-incorrect');
+                if (!resultData.is_correct) {
+                    $('.fast-attack-button:contains("' + resultData.correct_answer + '"), .attack-comparison-button:contains("' + resultData.correct_answer + '")')
+                        .addClass('button-highlight-correct');
+                }
+            }
+        }
+
+        function resetButtonStates() {
+            $('.fast-attack-button, .attack-comparison-button, .key').prop('disabled', false).css({
+                'opacity': '1',
+                'background-color': '#7e6894',
+                'color': '#FFFFFF'
+            }).removeClass('selected button-highlight-correct button-highlight-incorrect');
+
+            refreshCPButtonStates();
+        }
+
+        function refreshCPButtonStates() {
+            let currentCP = $('.cp-button.selected').data('cp');
+            
+            $('.cp-button').removeClass('selected').css({
+                'background-color': '#7e6894',
+                'color': '#FFFFFF'
+            });
+
+            $('.cp-button[data-cp="' + currentCP + '"]').addClass('selected').css({
+                'background-color': '#2e4bbf',
+                'color': '#FFFFFF'
+            });
+        }
+
+        function updateCPSelection(selectedCP) {
+            $('.cp-button').removeClass('selected');
+            $('.cp-button[data-cp="' + selectedCP + '"]').addClass('selected');
+            $.ajax({
+                url: '/update_max_cp',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({max_cp: selectedCP}),
+                success: function(data) {
+                    if (data.success) {
+                        refreshCPButtonStates();
+                    }
+                }
+            });
+        }
+
+        function loadSidebarData() {
+            $.get('/get_sidebar_data', function(data) {
+                $('#pokedex-file').text(data.pokedex_filename);
+                $('#moves-file').text(data.moves_filename);
+                $('#selected-max-cp').text('Selected Max Pokémon CP: ' + data.pokemon_max_cp);
+                
+                let datasetSelect = $('#dataset-select');
+                datasetSelect.empty();
+                data.dataset_files.forEach(function(file) {
+                    datasetSelect.append($('<option></option>').attr('value', file).text(file));
+                });
+            });
+        }
+
+        $('#load-dataset').click(function() {
+            let datasetFilepath = $('#dataset-select').val();
+            $.ajax({
+                url: '/load_dataset',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({dataset_filepath: datasetFilepath}),
+                success: function(data) {
+                    if (data.success) {
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+
+        $('#toggle-sidebar').click(function() {
+            $('.sidebar').toggleClass('show');
+            $('.main-content').toggleClass('sidebar-open');
+        });
+
+        $('input[type="range"]').on('input', function() {
+            $('#' + $(this).attr('id') + '-value').text(parseFloat($(this).val()).toFixed(2));
+        });
+
+        $(document).ready(function() {
+            loadSidebarData();
+            getQuestion();
+
+            $('.cp-button').click(function() {
+                updateCPSelection($(this).data('cp'));
+            });
+
+            updateCPSelection(1500);
+
+            refreshCPButtonStates();
+
+            // Add this function to handle layout adjustments
+            function adjustLayout() {
+                if (window.innerWidth <= 768) {
+                    $('.sidebar').removeClass('show');
+                    $('.main-content').removeClass('sidebar-open');
+                }
+            }
+
+            // Call adjustLayout on window resize and on page load
+            $(window).resize(adjustLayout);
+            adjustLayout();
+        });
+
+        $('#check-answer').click(function() {
+            checkAnswer();
+        });
+
+        $('.next-question').click(function() {
+            getQuestion();
+        });
+
+        $('.key').click(function() {
+            let currentInput = $('#user-input').val();
+            let keyValue = $(this).text();
+            if (keyValue === '⌫') {
+                currentInput = currentInput.slice(0, -1);
+            } else {
+                currentInput += keyValue;
+            }
+            $('#user-input').val(currentInput);
+        });
+    </script>
+</body>
+</html>

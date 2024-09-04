@@ -97,8 +97,8 @@ def generate_question(
         )
 
         question = f"Which Pokémon will win CMP: "
-        question += f'**{pokemon1_cp} CP** **{"/".join(map(str, ivs1))}** {pokemon1}'
-        question += f' or **{pokemon2_cp} CP** **{"/".join(map(str, ivs2))}** {pokemon2}?'
+        question += f'<b>{pokemon1_cp} CP</b> <b>{"/".join(map(str, ivs1))}</b> {pokemon1}'
+        question += f' or <b>{pokemon2_cp} CP</b> <b>{"/".join(map(str, ivs2))}</b> {pokemon2}?'
         answer = pokemon1 if pokemon1_atk >= pokemon2_atk else pokemon2
         answer_explanation = (
             "(" + str(round(pokemon1_atk, 2)) + " vs " + str(round(pokemon2_atk, 2)) + ")"
@@ -117,7 +117,7 @@ def generate_question(
         )[0]
         fast_attack_type = retrieve_move_type(fast_attack_name, moves_database)
 
-        question = f"How many turns does **{fast_attack_name}** take?"
+        question = f"How many turns does <b>{fast_attack_name}</b> take?"
         question = style_text(question, fast_attack_name, get_element_type_color(fast_attack_type))
         correct_answer = int(fast_attack_turns[0])
 
@@ -141,8 +141,8 @@ def generate_question(
         charge_move_name, charge_move_sequence = random.choice(list(charge_moves.items()))
         charge_move_type = retrieve_move_type(charge_move_name, moves_database)
 
-        question = f"Give sequence of how many **{fast_attack_name}** moves are required"
-        question += f" for **{pokemon}** to use **{charge_move_name}** four times in a row?"
+        question = f"Give sequence of how many <b>{fast_attack_name}</b> moves are required"
+        question += f" for <b>  {pokemon}</b> to use <b>{charge_move_name}</b> four times in a row?"
         question = style_text(question, pokemon, get_element_type_color(pokemon_type))
         question = style_text(question, fast_attack_name, get_element_type_color(fast_attack_type))
         question = style_text(question, charge_move_name, get_element_type_color(charge_move_type))
