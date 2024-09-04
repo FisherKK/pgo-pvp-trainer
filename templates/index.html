@@ -80,6 +80,7 @@
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             border-right: 1px solid #3b4675;
             box-sizing: border-box;
+            z-index: 1002; /* Increase this value */
         }
         .sidebar.show {
             left: 0;
@@ -96,7 +97,7 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            z-index: 1000;
+            z-index: 1003; /* Higher than the sidebar */
             width: auto;
             padding: 10px;
             transition: left 0.3s ease-in-out;
@@ -162,11 +163,10 @@
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
-            position: sticky;
-            top: 0;
             background-color: #101330;
             padding: 10px 0;
-            z-index: 10;
+            position: relative;
+            z-index: 998;
         }
         .button-container button {
             flex: 1;
@@ -196,6 +196,7 @@
             padding-top: 50px;
             padding-bottom: 100px;
             overflow-y: auto;
+            z-index: 1002;
         }
         .attack-comparison-button, .fast-attack-button {
             color: #FFFFFF !important;
@@ -307,6 +308,10 @@
             box-shadow: 0 0 10px #FF0000;
         }
 
+        .main-content.sidebar-open .button-container {
+            visibility: hidden; /* Hide buttons when sidebar is open */
+        }
+
         /* Make the layout responsive */
         @media (max-width: 768px) {
             .container {
@@ -358,6 +363,21 @@
             .button-container button {
                 width: 100%;
                 margin-bottom: 10px;
+            }
+
+            .button-container {
+                position: relative; /* Change from fixed to relative */
+                top: auto;
+                left: auto;
+                right: auto;
+            }
+
+            .main-content {
+                padding-top: 10px; /* Adjust as needed */
+            }
+
+            .sidebar.show ~ .main-content .button-container {
+                display: none;
             }
         }
 
@@ -421,6 +441,10 @@
         .ui-dialog-buttonset button:active {
             transform: scale(0.95);
             background-color: #9B5B9B;
+        }
+
+        .sidebar.show ~ .main-content {
+            visibility: hidden;
         }
     </style>
 </head>
@@ -671,6 +695,7 @@
         $('#toggle-sidebar').click(function() {
             $('.sidebar').toggleClass('show');
             $('.main-content').toggleClass('sidebar-open');
+            $('.main-content').css('visibility', $('.sidebar').hasClass('show') ? 'hidden' : 'visible');
         });
 
         $('input[type="range"]').on('input', function() {

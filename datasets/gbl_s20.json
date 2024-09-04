@@ -1,0 +1,1626 @@
+{
+  "Abomasnow": {
+    "attack_range": "116.4 - 126.3",
+    "fast_attack": {
+      "Powder Snow": "2T"
+    },
+    "charge_moves": {
+      "Weather Ball": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Icy Wind": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Energy Ball": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Altaria": {
+    "attack_range": "101.4 - 110.4",
+    "fast_attack": {
+      "Dragon Breath": "1T"
+    },
+    "charge_moves": {
+      "Sky Attack": [
+        19,
+        18,
+        19,
+        18
+      ],
+      "Moonblast": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "Dragon Pulse": [
+        20,
+        20,
+        20,
+        20
+      ]
+    }
+  },
+  "Annihilape": {
+    "attack_range": "122.2 - 129.4",
+    "fast_attack": {
+      "Counter": "2T"
+    },
+    "charge_moves": {
+      "Night Slash": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "Ice Punch": [
+        7,
+        7,
+        6,
+        7
+      ],
+      "Shadow Ball": [
+        10,
+        9,
+        9,
+        9
+      ]
+    }
+  },
+  "Azumarill": {
+    "attack_range": "91.5 - 101.3",
+    "fast_attack": {
+      "Bubble": "3T"
+    },
+    "charge_moves": {
+      "Ice Beam": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Play Rough": [
+        6,
+        5,
+        6,
+        5
+      ],
+      "Hydro Pump": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Bastiodon": {
+    "attack_range": "78.9 - 88.0",
+    "fast_attack": {
+      "Smack Down": "3T"
+    },
+    "charge_moves": {
+      "Stone Edge": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "Flamethrower": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Carbink": {
+    "attack_range": "83.4 - 91.3",
+    "fast_attack": {
+      "Rock Throw": "2T"
+    },
+    "charge_moves": {
+      "Rock Slide": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "Moonblast": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "Power Gem": [
+        12,
+        12,
+        12,
+        12
+      ]
+    }
+  },
+  "Charjabug": {
+    "attack_range": "113.1 - 124.1",
+    "fast_attack": {
+      "Volt Switch": "4T"
+    },
+    "charge_moves": {
+      "X-Scissor": [
+        3,
+        2,
+        3,
+        2
+      ],
+      "Discharge": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "Crunch": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "Chesnaught": {
+    "attack_range": "117.6 - 125.7",
+    "fast_attack": {
+      "Vine Whip": "2T"
+    },
+    "charge_moves": {
+      "Super Power": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Thunder Punch": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Frenzy Plant": [
+        6,
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "Clefable": {
+    "attack_range": "115.2 - 123.6",
+    "fast_attack": {
+      "Fairy Wind": "2T"
+    },
+    "charge_moves": {
+      "Swift": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Meteor Mash": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Moonblast": [
+        7,
+        7,
+        6,
+        7
+      ]
+    }
+  },
+  "Clodsire": {
+    "attack_range": "93.3 - 101.4",
+    "fast_attack": {
+      "Poison Sting": "2T"
+    },
+    "charge_moves": {
+      "Sludge Bomb": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Stone Edge": [
+        7,
+        6,
+        6,
+        6
+      ],
+      "Earthquake": [
+        8,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Cresselia": {
+    "attack_range": "91.9 - 97.3",
+    "fast_attack": {
+      "Psycho Cut": "2T"
+    },
+    "charge_moves": {
+      "Grass Knot": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Moonblast": [
+        7,
+        7,
+        6,
+        7
+      ],
+      "Future Sight": [
+        8,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Deoxys Defense": {
+    "attack_range": "100.7 - 102.9",
+    "fast_attack": {
+      "Counter": "2T"
+    },
+    "charge_moves": {
+      "Psycho Boost": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "Rock Slide": [
+        8,
+        7,
+        8,
+        7
+      ],
+      "Thunderbolt": [
+        10,
+        9,
+        9,
+        9
+      ]
+    }
+  },
+  "Dewgong": {
+    "attack_range": "100.5 - 109.8",
+    "fast_attack": {
+      "Ice Shard": "3T"
+    },
+    "charge_moves": {
+      "Icy Wind": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Drill Run": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Liquidation": [
+        5,
+        4,
+        5,
+        4
+      ]
+    }
+  },
+  "Diggersby": {
+    "attack_range": "94.1 - 104.1",
+    "fast_attack": {
+      "Quick Attack": "3T"
+    },
+    "charge_moves": {
+      "Fire Punch": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Scorching Sands": [
+        7,
+        6,
+        6,
+        6
+      ],
+      "Hyper Beam": [
+        10,
+        10,
+        10,
+        10
+      ]
+    }
+  },
+  "Dragapult": {
+    "attack_range": "141.4 - 150.1",
+    "fast_attack": {
+      "Astonish": "3T"
+    },
+    "charge_moves": {
+      "Breaking Swipe": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Shadow Ball": [
+        6,
+        5,
+        6,
+        5
+      ]
+    }
+  },
+  "Dragonair": {
+    "attack_range": "123.9 - 135.5",
+    "fast_attack": {
+      "Dragon Breath": "1T"
+    },
+    "charge_moves": {
+      "Aqua Tail": [
+        12,
+        12,
+        11,
+        12
+      ],
+      "Body Slam": [
+        12,
+        12,
+        11,
+        12
+      ],
+      "Dragon Pulse": [
+        20,
+        20,
+        20,
+        20
+      ]
+    }
+  },
+  "Dragonite": {
+    "attack_range": "141.3 - 152.0",
+    "fast_attack": {
+      "Dragon Breath": "1T"
+    },
+    "charge_moves": {
+      "Dragon Claw": [
+        12,
+        12,
+        11,
+        12
+      ],
+      "Super Power": [
+        14,
+        13,
+        13,
+        14
+      ],
+      "Hurricane": [
+        22,
+        22,
+        21,
+        22
+      ]
+    }
+  },
+  "Dunsparce": {
+    "attack_range": "103.5 - 113.3",
+    "fast_attack": {
+      "Rollout": "3T"
+    },
+    "charge_moves": {
+      "Drill Run": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Rock Slide": [
+        4,
+        3,
+        4,
+        3
+      ]
+    }
+  },
+  "Dusknoir": {
+    "attack_range": "117.7 - 126.9",
+    "fast_attack": {
+      "Astonish": "3T"
+    },
+    "charge_moves": {
+      "Shadow Punch": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Dark Pulse": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Shadow Ball": [
+        6,
+        5,
+        6,
+        5
+      ]
+    }
+  },
+  "Empoleon": {
+    "attack_range": "123.8 - 132.7",
+    "fast_attack": {
+      "Metal Claw": "2T"
+    },
+    "charge_moves": {
+      "Drill Peck": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "Hydro Cannon": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "Blizzard": [
+        11,
+        11,
+        11,
+        10
+      ]
+    }
+  },
+  "Feraligatr": {
+    "attack_range": "122.4 - 129.7",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Hydro Cannon": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Crunch": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Ice Beam": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Ferrothorn": {
+    "attack_range": "105.5 - 113.2",
+    "fast_attack": {
+      "Bullet Seed": "3T"
+    },
+    "charge_moves": {
+      "Mirror Shot": [
+        3,
+        3,
+        3,
+        2
+      ],
+      "Power Whip": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Thunder": [
+        5,
+        5,
+        4,
+        5
+      ]
+    }
+  },
+  "Froslass": {
+    "attack_range": "120.8 - 131.4",
+    "fast_attack": {
+      "Powder Snow": "2T"
+    },
+    "charge_moves": {
+      "Avalanche": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Triple Axel": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Shadow Ball": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Gallade": {
+    "attack_range": "134.3 - 143.6",
+    "fast_attack": {
+      "Psycho Cut": "2T"
+    },
+    "charge_moves": {
+      "Leaf Blade": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Close Combat": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Synchronoise": [
+        6,
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "Gastrodon": {
+    "attack_range": "112.4 - 121.0",
+    "fast_attack": {
+      "Mud Slap": "3T"
+    },
+    "charge_moves": {
+      "Body Slam": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Earth Power": [
+        6,
+        5,
+        6,
+        5
+      ],
+      "Water Pulse": [
+        6,
+        5,
+        6,
+        5
+      ]
+    }
+  },
+  "Giratina Origin": {
+    "attack_range": "117.9 - 124.1",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Ominous Wind": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Shadow Ball": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "Dragon Pulse": [
+        8,
+        7,
+        8,
+        7
+      ]
+    }
+  },
+  "Gligar": {
+    "attack_range": "108.1 - 116.0",
+    "fast_attack": {
+      "Fury Cutter": "1T"
+    },
+    "charge_moves": {
+      "Night Slash": [
+        9,
+        9,
+        9,
+        8
+      ],
+      "Aerial Ace": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "Dig": [
+        13,
+        12,
+        13,
+        12
+      ]
+    }
+  },
+  "Golurk": {
+    "attack_range": "132.1 - 140.9",
+    "fast_attack": {
+      "Mud Slap": "3T"
+    },
+    "charge_moves": {
+      "Shadow Punch": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Dynamic Punch": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Earth Power": [
+        6,
+        5,
+        6,
+        5
+      ]
+    }
+  },
+  "Goodra": {
+    "attack_range": "118 - 125",
+    "fast_attack": {
+      "Dragon Breath": "1T"
+    },
+    "charge_moves": {
+      "Aqua Tail": [
+        12,
+        12,
+        11,
+        12
+      ],
+      "Thunder Punch": [
+        14,
+        13,
+        13,
+        14
+      ],
+      "Power Whip": [
+        17,
+        17,
+        16,
+        17
+      ]
+    }
+  },
+  "Greninja": {
+    "attack_range": "138.3 - 147.4",
+    "fast_attack": {
+      "Water Shuriken": "3T"
+    },
+    "charge_moves": {
+      "Night Slash": [
+        3,
+        2,
+        3,
+        2
+      ],
+      "Hydro Cannon": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "Aerial Ace": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "Guzzlord": {
+    "attack_range": "112.9 - 119.4",
+    "fast_attack": {
+      "Dragon Tail": "3T"
+    },
+    "charge_moves": {
+      "Dragon Claw": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Brutal Swing": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Sludge Bomb": [
+        6,
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "Jellicent": {
+    "attack_range": "105.7 - 113.8",
+    "fast_attack": {
+      "Hex": "3T"
+    },
+    "charge_moves": {
+      "Surf": [
+        4,
+        3,
+        3,
+        4
+      ],
+      "Ice Beam": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "Shadow Ball": [
+        5,
+        5,
+        4,
+        5
+      ]
+    }
+  },
+  "Jumpluff": {
+    "attack_range": "95 - 104.3",
+    "fast_attack": {
+      "Fairy Wind": "2T"
+    },
+    "charge_moves": {
+      "Aerial Ace": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Energy Ball": [
+        7,
+        6,
+        6,
+        6
+      ],
+      "Acrobatics": [
+        7,
+        7,
+        6,
+        7
+      ]
+    }
+  },
+  "Lanturn": {
+    "attack_range": "103.2 - 111.7",
+    "fast_attack": {
+      "Water Gun": "1T"
+    },
+    "charge_moves": {
+      "Surf": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "Thunderbolt": [
+        19,
+        18,
+        18,
+        19
+      ]
+    }
+  },
+  "Lickilicky": {
+    "attack_range": "104.2 - 111.5",
+    "fast_attack": {
+      "Rollout": "3T"
+    },
+    "charge_moves": {
+      "Body Slam": [
+        3,
+        3,
+        3,
+        2
+      ],
+      "Shadow Ball": [
+        5,
+        4,
+        4,
+        4
+      ],
+      "Earthquake": [
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "Lickitung": {
+    "attack_range": "96.9 - 103.9",
+    "fast_attack": {
+      "Lick": "1T"
+    },
+    "charge_moves": {
+      "Body Slam": [
+        12,
+        12,
+        11,
+        12
+      ],
+      "Power Whip": [
+        17,
+        17,
+        16,
+        17
+      ]
+    }
+  },
+  "Machamp": {
+    "attack_range": "134.8 - 143.1",
+    "fast_attack": {
+      "Karate Chop": "2T"
+    },
+    "charge_moves": {
+      "Cross Chop": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Rock Slide": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Payback": [
+        7,
+        7,
+        6,
+        7
+      ]
+    }
+  },
+  "Malamar": {
+    "attack_range": "117 - 125.6",
+    "fast_attack": {
+      "Psycho Cut": "1T"
+    },
+    "charge_moves": {
+      "Super Power": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "Foul Play": [
+        12,
+        11,
+        11,
+        11
+      ],
+      "Hyper Beam": [
+        20,
+        20,
+        20,
+        20
+      ]
+    }
+  },
+  "Mandibuzz": {
+    "attack_range": "90.3 - 98.0",
+    "fast_attack": {
+      "Snarl": "3T"
+    },
+    "charge_moves": {
+      "Aerial Ace": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "Foul Play": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Dark Pulse": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  },
+  "Mantine": {
+    "attack_range": "103.6 - 112.4",
+    "fast_attack": {
+      "Wing Attack": "2T"
+    },
+    "charge_moves": {
+      "Aerial Ace": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "Water Pulse": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "Ice Beam": [
+        8,
+        8,
+        8,
+        8
+      ]
+    }
+  },
+  "Marowak": {
+    "attack_range": "108.3 - 118.2",
+    "fast_attack": {
+      "Mud Slap": "3T"
+    },
+    "charge_moves": {
+      "Bone Club": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Rock Slide": [
+        5,
+        4,
+        5,
+        4
+      ]
+    }
+  },
+  "Marowak Alolan": {
+    "attack_range": "103.8 - 113.8",
+    "fast_attack": {
+      "Fire Spin": "3T"
+    },
+    "charge_moves": {
+      "Bone Club": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Shadow Bone": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Fire Blast": [
+        8,
+        8,
+        8,
+        8
+      ]
+    }
+  },
+  "Ninetales Alolan": {
+    "attack_range": "113.5 - 122.3",
+    "fast_attack": {
+      "Powder Snow": "2T"
+    },
+    "charge_moves": {
+      "Weather Ball": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Psyshock": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Dazzling Gleam": [
+        9,
+        9,
+        9,
+        8
+      ]
+    }
+  },
+  "Pangoro": {
+    "attack_range": "133.3 - 142.1",
+    "fast_attack": {
+      "Karate Chop": "2T"
+    },
+    "charge_moves": {
+      "Night Slash": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Close Combat": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Rock Slide": [
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "Poliwrath": {
+    "attack_range": "114 - 122.1",
+    "fast_attack": {
+      "Counter": "2T"
+    },
+    "charge_moves": {
+      "Power-Up Punch": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "Icy Wind": [
+        8,
+        7,
+        8,
+        7
+      ],
+      "Scald": [
+        9,
+        8,
+        8,
+        9
+      ]
+    }
+  },
+  "Quagsire": {
+    "attack_range": "109.3 - 119.0",
+    "fast_attack": {
+      "Mud Shot": "2T"
+    },
+    "charge_moves": {
+      "Aqua Tail": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Mud Bomb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Stone Edge": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Registeel": {
+    "attack_range": "93.8 - 100.1",
+    "fast_attack": {
+      "Lock On": "1T"
+    },
+    "charge_moves": {
+      "Flash Cannon": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "Focus Blast": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "Zap Cannon": [
+        16,
+        16,
+        16,
+        16
+      ]
+    }
+  },
+  "Runerigus": {
+    "attack_range": "109.9 - 118.2",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Brutal Swing": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Sand Tomb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Shadow Ball": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Sableye": {
+    "attack_range": "119.5 - 129.9",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Foul Play": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Power Gem": [
+        8,
+        7,
+        8,
+        7
+      ],
+      "Return": [
+        9,
+        9,
+        9,
+        8
+      ]
+    }
+  },
+  "Sandslash Alolan": {
+    "attack_range": "114.6 - 123.0",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Ice Punch": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Aerial Ace": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Drill Run": [
+        6,
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "Serperior": {
+    "attack_range": "108.6 - 116.8",
+    "fast_attack": {
+      "Vine Whip": "2T"
+    },
+    "charge_moves": {
+      "Aerial Ace": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Leaf Tornado": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Frenzy Plant": [
+        6,
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "Skarmory": {
+    "attack_range": "103.6 - 112.4",
+    "fast_attack": {
+      "Steel Wing": "2T"
+    },
+    "charge_moves": {
+      "Sky Attack": [
+        10,
+        9,
+        9,
+        9
+      ],
+      "Brave Bird": [
+        10,
+        9,
+        9,
+        9
+      ]
+    }
+  },
+  "Stunfisk Galarian": {
+    "attack_range": "99.9 - 108.3",
+    "fast_attack": {
+      "Mud Shot": "2T"
+    },
+    "charge_moves": {
+      "Rock Slide": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Earthquake": [
+        9,
+        8,
+        8,
+        8
+      ]
+    }
+  },
+  "Swampert": {
+    "attack_range": "121.1 - 129.8",
+    "fast_attack": {
+      "Mud Shot": "2T"
+    },
+    "charge_moves": {
+      "Hydro Cannon": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Earthquake": [
+        9,
+        8,
+        8,
+        8
+      ],
+      "Sludge Wave": [
+        9,
+        8,
+        8,
+        8
+      ]
+    }
+  },
+  "Talonflame": {
+    "attack_range": "119.8 - 129.4",
+    "fast_attack": {
+      "Incinerate": "5T"
+    },
+    "charge_moves": {
+      "Fly": [
+        3,
+        2,
+        2,
+        2
+      ],
+      "Flame Charge": [
+        3,
+        2,
+        3,
+        2
+      ],
+      "Brave Bird": [
+        3,
+        3,
+        3,
+        2
+      ]
+    }
+  },
+  "Toxapex": {
+    "attack_range": "90.3 - 99.7",
+    "fast_attack": {
+      "Poison Jab": "2T"
+    },
+    "charge_moves": {
+      "Brine": [
+        8,
+        7,
+        7,
+        7
+      ],
+      "Sludge Wave": [
+        10,
+        9,
+        9,
+        10
+      ]
+    }
+  },
+  "Trevenant": {
+    "attack_range": "125.9 - 135.0",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Seed Bomb": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Shadow Ball": [
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "Typhlosion": {
+    "attack_range": "131.5 - 140.3",
+    "fast_attack": {
+      "Incinerate": "5T"
+    },
+    "charge_moves": {
+      "Thunder Punch": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "Solar Beam": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Blast Burn": [
+        3,
+        2,
+        3,
+        2
+      ]
+    }
+  },
+  "Umbreon": {
+    "attack_range": "88.2 - 96.0",
+    "fast_attack": {
+      "Snarl": "3T"
+    },
+    "charge_moves": {
+      "Foul Play": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "Last Resort": [
+        5,
+        4,
+        4,
+        4
+      ],
+      "Psychic": [
+        5,
+        4,
+        4,
+        4
+      ]
+    }
+  },
+  "Ursaring": {
+    "attack_range": "137.4 - 146.8",
+    "fast_attack": {
+      "Shadow Claw": "2T"
+    },
+    "charge_moves": {
+      "Swift": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "Close Combat": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Play Rough": [
+        8,
+        7,
+        8,
+        7
+      ]
+    }
+  },
+  "Venusaur": {
+    "attack_range": "121.2 - 129.1",
+    "fast_attack": {
+      "Vine Whip": "2T"
+    },
+    "charge_moves": {
+      "Frenzy Plant": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Sludge Bomb": [
+        7,
+        6,
+        6,
+        6
+      ]
+    }
+  },
+  "Weezing Galarian": {
+    "attack_range": "116.2 - 124.9",
+    "fast_attack": {
+      "Fairy Wind": "2T"
+    },
+    "charge_moves": {
+      "Brutal Swing": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "Overheat": [
+        7,
+        6,
+        6,
+        6
+      ],
+      "Play Rough": [
+        7,
+        7,
+        6,
+        7
+      ]
+    }
+  },
+  "Whimsicott": {
+    "attack_range": "116.9 - 126.9",
+    "fast_attack": {
+      "Fairy Wind": "2T"
+    },
+    "charge_moves": {
+      "Seed Bomb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Grass Knot": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "Moonblast": [
+        7,
+        7,
+        6,
+        7
+      ]
+    }
+  },
+  "Whiscash": {
+    "attack_range": "106.7 - 115.5",
+    "fast_attack": {
+      "Mud Shot": "2T"
+    },
+    "charge_moves": {
+      "Mud Bomb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "Scald": [
+        7,
+        6,
+        6,
+        6
+      ],
+      "Blizzard": [
+        10,
+        9,
+        10,
+        9
+      ]
+    }
+  },
+  "Wigglytuff": {
+    "attack_range": "114.1 - 125.1",
+    "fast_attack": {
+      "Charm": "3T"
+    },
+    "charge_moves": {
+      "Swift": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "Icy Wind": [
+        8,
+        7,
+        8,
+        7
+      ],
+      "Disarming Voice": [
+        8,
+        7,
+        8,
+        7
+      ]
+    }
+  }
+}
