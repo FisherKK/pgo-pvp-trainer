@@ -146,7 +146,7 @@
             margin-bottom: 10px;
         }
         #dataset-select {
-            width: 85%;
+            width: 97%; /* Changed from 85% to 90% */
             padding: 5px;
             background-color: #555555;
             color: #FFFFFF;
@@ -161,7 +161,7 @@
             border-radius: 5px;
             margin-bottom: 10px;
             display: block;
-            width: 80%;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
@@ -454,6 +454,37 @@
 
         .sidebar.show ~ .main-content {
             visibility: hidden;
+        }
+
+        /* Disable zooming */
+        body {
+            touch-action: manipulation;
+        }
+
+        /* Make only the navigation menu scrollable */
+        body {
+            overflow: hidden;
+        }
+
+        .sidebar {
+            overflow-y: auto;
+        }
+
+        /* Increase the width of the Settings button */
+        #toggle-sidebar {
+            width: 120px; /* Increased from 90px */
+        }
+
+        /* Decrease the size of text field backgrounds */
+        .file-info {
+            width: 94%;
+        }
+
+        /* Adjust the sidebar padding for mobile */
+        @media (max-width: 768px) {
+            .sidebar {
+                padding: 70px 10px 20px; /* Adjusted padding */
+            }
         }
     </style>
 </head>
