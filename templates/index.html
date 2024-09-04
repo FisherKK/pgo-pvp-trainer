@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PGO PvP Trainer</title>
     <style>
         body {
@@ -12,6 +13,7 @@
             background-color: #020629;
             color: #FFFFFF;
             font-size: 14px;
+            overflow: hidden;
         }
         .container {
             max-width: 600px;
@@ -89,6 +91,7 @@
             margin-left: 0;
             transition: margin-left 0.3s ease-in-out;
             padding: 50px 20px 20px 20px; /* Changed from padding: 20px; */
+            overflow: hidden;
         }
         .main-content.sidebar-open {
             margin-left: 270px;
@@ -98,7 +101,7 @@
             top: 10px;
             left: 10px;
             z-index: 1003; /* Higher than the sidebar */
-            width: auto;
+            width: 90px; /* Increased from 60px */
             padding: 10px;
             transition: left 0.3s ease-in-out;
         }
@@ -143,11 +146,14 @@
             margin-bottom: 10px;
         }
         #dataset-select {
-            width: 100%;
+            width: 85%;
             padding: 5px;
             background-color: #555555;
             color: #FFFFFF;
             border: none;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
         }
         .file-info {
             background-color: #555555;
@@ -155,7 +161,9 @@
             border-radius: 5px;
             margin-bottom: 10px;
             display: block;
-            width: 100%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
             border: 1px solid #3b4675;
         }
@@ -322,6 +330,7 @@
             .sidebar {
                 width: 100%;
                 left: -100%;
+                padding: 70px 10px 20px; /* Adjusted padding */
             }
 
             .sidebar.show {
@@ -707,7 +716,11 @@
         $('#toggle-sidebar').click(function() {
             $('.sidebar').toggleClass('show');
             $('.main-content').toggleClass('sidebar-open');
-            $('.main-content').css('visibility', $('.sidebar').hasClass('show') ? 'hidden' : 'visible');
+            if ($('.sidebar').hasClass('show')) {
+                $('.main-content').css('visibility', 'hidden');
+            } else {
+                $('.main-content').css('visibility', 'visible');
+            }
         });
 
         $('input[type="range"]').on('input', function() {
