@@ -4,7 +4,6 @@ from project.generator import generate_question
 from project.io import load_json
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Set a secret key for session management
 
 # Load databases
 def load_databases():
