@@ -49,7 +49,7 @@
             background-color: #7e6894;
             border: none;
             color: #FFFFFF;
-            padding: 15px 0;
+            padding: 22.5px 0; /* Increased from 15px to 22.5px (1.5 times) */
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -88,7 +88,7 @@
         .main-content {
             margin-left: 0;
             transition: margin-left 0.3s ease-in-out;
-            padding: 20px;
+            padding: 50px 20px 20px 20px; /* Changed from padding: 20px; */
         }
         .main-content.sidebar-open {
             margin-left: 270px;
@@ -178,7 +178,7 @@
             background-color: #2e4bbf;
             border: none;
             color: #FFFFFF;
-            padding: 15px 0;
+            padding: 22.5px 0; /* Increased from 15px to 22.5px (1.5 times) */
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -276,7 +276,7 @@
             display: flex;
             justify-content: space-between;
             margin: 20px 0;
-            padding: 0 10px;
+            padding: 0 5px;
         }
         .cp-button {
             width: 50px;
@@ -342,7 +342,7 @@
 
             .key, #check-answer, .next-question, .cp-button, #load-dataset, #toggle-sidebar,
             .attack-comparison-button, .fast-attack-button {
-                padding: 10px 0;
+                padding: 15px 0; /* Increased from 10px to 15px for mobile */
                 font-size: 12px;
             }
 
@@ -351,8 +351,8 @@
             }
 
             .cp-button {
-                width: 40px;
-                height: 40px;
+                width: 60px; /* Increased from 40px to 60px for mobile */
+                height: 60px; /* Increased from 40px to 60px for mobile */
                 font-size: 10px;
             }
 
@@ -373,7 +373,7 @@
             }
 
             .main-content {
-                padding-top: 10px; /* Adjust as needed */
+                padding-top: 60px; /* Increased for mobile to account for the larger Settings button */
             }
 
             .sidebar.show ~ .main-content .button-container {
