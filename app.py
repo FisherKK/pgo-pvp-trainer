@@ -1,10 +1,12 @@
 import os
 from flask import Flask, render_template, request, jsonify, session
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from project.generator import generate_question
 from project.io import load_json
 
 app = Flask(__name__)
-
+app.secret_key = os.urandom(24)
 
 # Load databases
 def load_databases():
